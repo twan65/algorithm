@@ -1,4 +1,4 @@
-package com.algorithm.an;
+package com.algorithm.an.backjoon;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package com.algorithm.an;
+package com.algorithm.an.backjoon;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -174,5 +174,21 @@ public class StringExam {
       System.out.println("result: " + answer);
       return;
     }
+  }
+
+  /**
+   * 問題：https://programmers.co.kr/learn/courses/30/lessons/68935
+   * 3進法を逆転して返す。
+   */
+  public int reverseTernarySystem(int n) {
+    final String dchar = "012";
+
+    String answer = "";
+    do {
+      answer += dchar.charAt(n % 3);
+      n /= 3;
+    } while (n != 0);
+
+    return Integer.parseInt(answer, 3);
   }
 }
