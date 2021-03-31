@@ -105,7 +105,18 @@ public class StringExam {
     // start
     String s = "Mississipi";
     String lowerStr = s.toLowerCase();
+    Integer aa = 0;
 
+    Map<Character, Integer> map = new HashMap<>();
+
+    for (char c : s.toCharArray()) {
+      if (!map.containsKey(c)) {
+        map.put(c, 0);
+      } else {
+        int value = map.get(c);
+        map.put(c, ++value);
+      }
+    }
 
     // result
   }
@@ -177,18 +188,26 @@ public class StringExam {
   }
 
   /**
-   * 問題：https://programmers.co.kr/learn/courses/30/lessons/68935
-   * 3進法を逆転して返す。
+   * 問題：https://www.acmicpc.net/problem/5622
+   * TODO
    */
-  public int reverseTernarySystem(int n) {
-    final String dchar = "012";
+  public static void dial() {
+    String s = "UNUCIC";
+    int second = 0;
 
-    String answer = "";
-    do {
-      answer += dchar.charAt(n % 3);
-      n /= 3;
-    } while (n != 0);
+    String[] al ={"ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"};
 
-    return Integer.parseInt(answer, 3);
+  }
+
+  /**
+   * 問題：https://www.acmicpc.net/problem/2941
+   * TODO
+   */
+  public static void croatiaOs() {
+    String input = "ljes=njak";
+    final String[] values = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
+
+
+
   }
 }
