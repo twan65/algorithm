@@ -26,13 +26,13 @@ public class DoitExam {
         int last = n.length - 1;
 
         do {
-            int center = (start + last) / 2;
-            if (n[center] == target) {
+            int center = (start + last) / 2; // ①
+            if (n[center] == target) { // ②
                 System.out.println(center);
                 break;
-            } else if (n[center] < target) {
+            } else if (n[center] < target) { // ③
                 start = center + 1;
-            } else {
+            } else { // ④
                 last = center - 1;
             }
         } while (start <= last);
@@ -53,5 +53,14 @@ public class DoitExam {
         } while (n != 0);
 
         return Integer.parseInt(answer, 3);
+    }
+
+    /** p100 */
+    public static int factorial(int n) {
+        if (n > 0) {
+            return n * factorial(n - 1);
+        } else {
+            return 1;
+        }
     }
 }
