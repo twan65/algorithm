@@ -143,7 +143,7 @@ public class StringExam {
   /** https://www.acmicpc.net/problem/2908 */
   public static void sangsu1() {
     // start
-    String s = "143 133";
+    String s = "143 132";
 
     String[] strArray = s.split(" ");
 

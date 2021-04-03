@@ -3,7 +3,7 @@ package com.algorithm.an;
 
 public class DoitExam {
 
-    /** p100 */
+    /** 선형탐색 */
     public static int sequentialSearch() {
 
         int[] n = {3, 4, 1, 2, 7, 9, 8};
@@ -16,7 +16,7 @@ public class DoitExam {
         return -1;
     }
 
-    /** p100 */
+    /** 이진탐색 */
     public static void binarySearch() {
 
         int[] n = {1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -55,7 +55,7 @@ public class DoitExam {
         return Integer.parseInt(answer, 3);
     }
 
-    /** p170 */
+    /** 팩토리얼 */
     public static int factorial1(int n) {
         if (n > 0) {
             return n * factorial1(n - 1);
@@ -64,7 +64,7 @@ public class DoitExam {
         }
     }
 
-    /** p170 */
+    /** 팩토리얼 */
     public static void factorial2() {
         int n = 3;
 

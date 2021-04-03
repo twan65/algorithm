@@ -108,6 +108,7 @@ public class StringLevelOne {
 
   /**
    * https://www.acmicpc.net/problem/2908
+   * TODO
    *
    * @param params
    */
@@ -141,7 +142,7 @@ public class StringLevelOne {
    *
    * @param params
    */
-  public static void findCroAlpabet(String params) {
+  public static void findCroAlphabet(String params) {
     String[] croAl = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
 
     int sum = 0;
@@ -152,6 +153,7 @@ public class StringLevelOne {
       params = params.replaceAll(croAl[count], "");
 
       if (length - params.length() == 0) continue;
+
       int changeCount = (length - params.length()) / croAl[count].length();
       length = params.length();
       sum += changeCount;
@@ -165,7 +167,7 @@ public class StringLevelOne {
    *
    * @param params
    */
-  public static void countGrupword(String params) {
+  public static void countGroupWord(String params) {
     String[] wordArray = params.split(" ");
 
     Map<String, Boolean> checkMap = new HashMap<>();
@@ -177,24 +179,26 @@ public class StringLevelOne {
         sum++;
         continue;
       }
-      boolean test=true;
+
+      boolean breakFlg = false;
       char checkword = targetWord.charAt(0);
       for (int i = 0; i < word.length(); i++) {
         while (targetWord.length() > 0) {
           if (targetWord.charAt(0) == checkword) {
             targetWord = targetWord.replaceFirst(String.valueOf(checkword), "");
           } else {
-            boolean loopOutFl = targetWord.indexOf(checkword) != -1;
-            checkMap.put(word, !loopOutFl);
-            if (loopOutFl){
-              test=false;
+            breakFlg = targetWord.indexOf(checkword) != -1;
+            checkMap.put(word, !breakFlg);
+            if (breakFlg){
               break;
             }
             checkword=targetWord.charAt(i);
           }
         }
-        if(!test) break;
+
+        if(breakFlg) break;
         checkMap.put(word, true);
+
       }
       if (checkMap.get(word)) sum++;
     }
