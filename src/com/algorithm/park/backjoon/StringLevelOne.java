@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 public class StringLevelOne {
 
@@ -79,11 +80,12 @@ public class StringLevelOne {
       Integer targetCount = (Integer) maxCountOfWord.get(alphabet);
       if (targetCount == null) {
         targetCount = 1;
-        maxCountOfWord.put(alphabet, targetCount);
       } else {
         targetCount++;
-        maxCountOfWord.replace(alphabet, targetCount);
       }
+
+      maxCountOfWord.put(alphabet, targetCount);
+
       if (maxCount == targetCount) {
         target = '?';
       } else if (maxCount < targetCount) {
@@ -91,6 +93,7 @@ public class StringLevelOne {
         target = alphabet;
       }
     }
+
     System.out.println(target);
   }
 

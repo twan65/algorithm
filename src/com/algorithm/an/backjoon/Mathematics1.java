@@ -23,4 +23,28 @@ public class Mathematics1 {
             i++;
         }
     }
+
+    /**
+     * https://www.acmicpc.net/problem/2292
+     * TODO
+     */
+    public static void honeycomb () {
+        int n = 13;
+
+        if (n == 1) {
+            System.out.println(n);
+            return;
+        }
+
+        int cnt = 2;
+        while (true) {
+            int start = cnt * 6 + 1;
+            if (start <= n && n <= ((cnt + 1) * 6) + start) {
+                System.out.println(cnt);
+                return;
+            }
+            cnt++;
+        }
+
+    }
 }

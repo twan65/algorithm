@@ -55,12 +55,47 @@ public class DoitExam {
         return Integer.parseInt(answer, 3);
     }
 
-    /** p100 */
-    public static int factorial(int n) {
+    /** p170 */
+    public static int factorial1(int n) {
         if (n > 0) {
-            return n * factorial(n - 1);
+            return n * factorial1(n - 1);
         } else {
             return 1;
         }
+    }
+
+    /** p170 */
+    public static void factorial2() {
+        int n = 3;
+
+        int sum = n;
+        for (; n > 1; n--) {
+            sum *= (n - 1);
+        }
+
+        System.out.println(sum);
+    }
+
+    /** 최대공약수 유클리드 호제법 */
+    public static int gcd1(int x, int y) {
+        if (y == 0) {
+            return x;
+        } else {
+            return gcd1(y, x % y);
+        }
+    }
+
+    /** 최대공약수 유클리드 호제법 */
+    public static void gcd2() {
+        int x = 16;
+        int y = 16;
+
+        while (y != 0) {
+            int t = x;
+            x = y;
+            y = t % y;
+        }
+
+        System.out.println(x);
     }
 }

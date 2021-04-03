@@ -35,7 +35,7 @@ public class StringExam {
   /** https://www.acmicpc.net/problem/10809 */
   public static void searchAlphabet() {
     // start
-    String s = "baekjoon";
+    String s = "a";
 
     int[] answer =
         new int[] {
@@ -43,7 +43,7 @@ public class StringExam {
           -1, -1, -1, -1
         };
 
-    for (int i = 0; i < s.length(); i++) {
+    for (int i = 0; i < s.length(); i++) { // 1
 
       int index = (int) s.charAt(i) - 97; // 아스키코드
       if (answer[index] == -1) {
