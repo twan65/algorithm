@@ -26,10 +26,9 @@ public class Mathematics1 {
 
     /**
      * https://www.acmicpc.net/problem/2292
-     * TODO
      */
     public static void honeycomb () {
-        int n = 13;
+        int n = 8;
 
         if (n == 1) {
             System.out.println(n);
@@ -37,12 +36,15 @@ public class Mathematics1 {
         }
 
         int cnt = 2;
+        int start = cnt;
+        int end = 7;
         while (true) {
-            int start = cnt * 6 + 1;
-            if (start <= n && n <= ((cnt + 1) * 6) + start) {
+            if (start <= n && n <= end) {
                 System.out.println(cnt);
                 return;
             }
+            start = end + 1;
+            end = cnt * 6 + end;
             cnt++;
         }
 
