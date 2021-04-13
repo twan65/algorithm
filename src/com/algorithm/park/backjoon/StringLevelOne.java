@@ -40,8 +40,8 @@ public class StringLevelOne {
    */
   public static void findAlphabet(String params) {
     String[] alphabetArray = {
-      "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s",
-      "t", "u", "v", "w", "x", "y", "z"
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s",
+            "t", "u", "v", "w", "x", "y", "z"
     };
 
     for (String alphabet : alphabetArray) {
@@ -111,9 +111,9 @@ public class StringLevelOne {
   public static void answerRevert(String params) {
     String[] wordArray = params.split(" ");
     String ans =
-        Integer.parseInt(wordArray[0]) < Integer.parseInt(wordArray[1])
-            ? wordArray[0]
-            : wordArray[1];
+            Integer.parseInt(wordArray[0]) < Integer.parseInt(wordArray[1])
+                    ? wordArray[0]
+                    : wordArray[1];
 
     StringBuilder sb = new StringBuilder();
 
@@ -174,23 +174,22 @@ public class StringLevelOne {
         sum++;
         continue;
       }
-      boolean test=true;
+      boolean breakFl=true;
       char checkword = targetWord.charAt(0);
       for (int i = 0; i < word.length(); i++) {
         while (targetWord.length() > 0) {
           if (targetWord.charAt(0) == checkword) {
             targetWord = targetWord.replaceFirst(String.valueOf(checkword), "");
           } else {
-            boolean loopOutFl = targetWord.indexOf(checkword) != -1;
-            checkMap.put(word, !loopOutFl);
-            if (loopOutFl){
-              test=false;
+            breakFl = targetWord.indexOf(checkword) != -1;
+            checkMap.put(word, !breakFl);
+            if (breakFl){
               break;
             }
             checkword=targetWord.charAt(i);
           }
         }
-        if(!test) break;
+        if(breakFl) break;
         checkMap.put(word, true);
       }
       if (checkMap.get(word)) sum++;
