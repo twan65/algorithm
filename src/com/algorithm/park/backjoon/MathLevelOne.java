@@ -47,6 +47,7 @@ public class MathLevelOne {
 
   /**
    * https://www.acmicpc.net/problem/1193
+   *
    * @param params
    */
   public static void findFractions(String params) {
@@ -92,20 +93,21 @@ public class MathLevelOne {
 
   /**
    * https://www.acmicpc.net/problem/2869
+   *
    * @param params
    */
-  public static void snailHight(String params){
+  public static void snailHight(String params) {
     int up = Integer.parseInt(params.split(" ")[0]);
     int down = Integer.parseInt(params.split(" ")[1]);
     int tree = Integer.parseInt(params.split(" ")[2]);
 
-    int day=0;
-    int sum=0;
-    while (sum<tree){
+    int day = 0;
+    int sum = 0;
+    while (sum < tree) {
       day++;
-      sum+=up;
-      if(sum>=tree) break;
-      sum-=down;
+      sum += up;
+      if (sum >= tree) break;
+      sum -= down;
     }
 
     System.out.println(day);
@@ -113,40 +115,53 @@ public class MathLevelOne {
 
   /**
    * https://www.acmicpc.net/problem/10250
+   *
    * @param params
    */
-  public static void reservierenHotel(String params){
-    int hight=Integer.parseInt(params.split(" ")[0]);
-    int customer=Integer.parseInt(params.split(" ")[2]);
+  public static void reservierenHotel(String params) {
+    int hight = Integer.parseInt(params.split(" ")[0]);
+    int customer = Integer.parseInt(params.split(" ")[2]);
 
-    if(customer<hight) System.out.println(customer+"01");
-    else{
-      int widthCount=1;
+    if (customer < hight) System.out.println(customer + "01");
+    else {
+      int widthCount = 1;
 
-      while (customer>hight){
+      while (customer > hight) {
         widthCount++;
-        customer-=hight;
+        customer -= hight;
       }
-      System.out.println(customer+""+(widthCount<10?"0"+widthCount:widthCount));
+      System.out.println(customer + "" + (widthCount < 10 ? "0" + widthCount : widthCount));
     }
   }
 
   /**
    * https://www.acmicpc.net/problem/2775
+   *
    * @param params
    */
-  public static void countApartmentPeple(String params){
-    int hight = Integer.parseInt(params.split(" ")[0]);
+  public static void countApartmentPeople(String params) {
+    int height = Integer.parseInt(params.split(" ")[0]);
     int width = Integer.parseInt(params.split(" ")[1]);
 
-    if(width==1) {
+    if (width == 1) {
       System.out.println(1);
       return;
-    }else if(hight==1){
+    } else if (height == 0) {
       System.out.println(width);
       return;
     }
 
-  }
+    int[] test = new int[width];
 
+    for (int i = 0; i < width - 1; i++) {
+      test[i] = i + 1;
+    }
+
+    for (int i = 0; i < height; i++) {
+      for (int j = 1; j < width; j++) {
+        test[j] = test[j] + test[j - 1];
+      }
+    }
+    System.out.println(test[width - 1]);
+  }
 }
