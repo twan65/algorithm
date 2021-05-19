@@ -164,4 +164,54 @@ public class MathLevelOne {
     }
     System.out.println(test[width - 1]);
   }
+
+  /**
+   * https://www.acmicpc.net/problem/2839
+   *
+   * @param params
+   */
+  public static void sugarDeliver(String params) {
+    int sugar = Integer.parseInt(params);
+    int count = 0;
+
+    if (sugar < 5 && sugar != 3) {
+      System.out.println(-1);
+      return;
+    }
+
+    if (sugar % 3 == 0) {
+      count = sugar / 3;
+
+      if (count > 5) {
+        int test1 = sugar / 5;
+        int test2 = sugar % 5;
+        count = (test1 * 3 / 5) + test2;
+      }
+
+      System.out.println(count);
+      return;
+    }
+
+    if (sugar % 5 == 0) {
+      System.out.println(sugar / 5);
+      return;
+    }
+    int target = sugar % 5;
+    count = sugar / 5;
+    while (true) {
+      if (target % 3 != 0 && count >= 1) {
+        count--;
+        target += 5;
+
+      } else if (target % 3 == 0) {
+        count += target / 3;
+        break;
+      } else if (count == 0) {
+        count = -1;
+        break;
+      }
+    }
+
+    System.out.println(count);
+  }
 }
