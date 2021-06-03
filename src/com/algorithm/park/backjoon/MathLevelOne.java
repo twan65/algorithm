@@ -214,4 +214,43 @@ public class MathLevelOne {
 
     System.out.println(count);
   }
+
+  /**
+   * https://www.acmicpc.net/problem/1011
+   * 
+   * @param params
+   */
+  public static void lastProblem(String params) {
+    int start = Integer.parseInt(params.split(" ")[0]);
+    int end = Integer.parseInt(params.split(" ")[1]);
+    int distance = end - start;
+    boolean isOdd = distance % 2 == 1;
+    int test1 = (int) Math.floor(distance / 2);
+
+    int test2 = 0;
+    int count = 1;
+    while (true) {
+      test2 = (count * (count + 1)) / 2;
+      if (test1 <= test2) {
+        if (test1 < test2) {
+          count--;
+          test2 = (count * (count + 1)) / 2;
+        }
+        break;
+      }
+      count++;
+    }
+    int answer = count * 2;
+    int test3 = distance - (test2 * 2);
+    if (isOdd) {
+      test3++;
+    }
+
+    if (test3 - 1 <= count) {
+      answer++;
+    } else {
+      answer += 2;
+    }
+    System.out.println(answer);
+  }
 }
